@@ -1,11 +1,14 @@
-import React from "react";
-import { LandingPageNavbar } from "../../components/navbar";
+import { LandingPageNavbar } from "@/components/navbar";
+import { LandingContent, LandingWelcome } from "./sections";
 
 export default function LandingPage() {
-    
   return (
     <>
       <LandingPageNavbar />
+
+      <LandingWelcome />
+
+      <LandingContent />
     </>
   );
 }
