@@ -17,6 +17,7 @@ import {
 import { DialogDescription } from "@radix-ui/react-dialog";
 import { buttonVariants } from "../ui/button";
 import LoginForm from "./LoginForm";
+import { LogInIcon } from "lucide-react";
 
 type Props = {
   isOpen: boolean;
@@ -29,10 +30,17 @@ export default function LoginView({ isOpen, setOpen }: Props) {
   if (isDesktop) {
     return (
       <Dialog open={isOpen} onOpenChange={setOpen}>
-        <DialogTrigger className={buttonVariants()}>Masuk/Daftar</DialogTrigger>
+        <DialogTrigger
+          className={buttonVariants({
+            variant: "outline",
+            className: "hover:bg-primary hover:text-white",
+          })}
+        >
+          Login <LogInIcon />
+        </DialogTrigger>
         <DialogContent className="max-w-sm">
           <DialogHeader>
-            <DialogTitle>Login</DialogTitle>
+            <DialogTitle className="text-primary">Login</DialogTitle>
             <DialogDescription>
               Masukkan username dan password anda untuk masuk
             </DialogDescription>
@@ -45,7 +53,9 @@ export default function LoginView({ isOpen, setOpen }: Props) {
 
   return (
     <Drawer open={isOpen} onOpenChange={setOpen}>
-      <DrawerTrigger className={buttonVariants()}>Masuk/Daftar</DrawerTrigger>
+      <DrawerTrigger className={buttonVariants()}>
+        Login <LogInIcon />
+      </DrawerTrigger>
       <DrawerContent>
         <DrawerHeader>
           <DrawerTitle>Login</DrawerTitle>
@@ -53,7 +63,7 @@ export default function LoginView({ isOpen, setOpen }: Props) {
             Masukkan username dan password anda untuk masuk
           </DrawerDescription>
         </DrawerHeader>
-        <LoginForm className="px-4" closeLoginView={setOpen} />
+        <LoginForm className="px-4 mb-5" closeLoginView={setOpen} />
       </DrawerContent>
     </Drawer>
   );
