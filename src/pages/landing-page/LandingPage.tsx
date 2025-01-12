@@ -1,5 +1,5 @@
 import { LandingPageNavbar } from "@/components/navbar";
-import { LandingContent, LandingWelcome } from "./sections";
+import {  LandingWelcome } from "./sections";
 
 export default function LandingPage() {
   return (
@@ -8,7 +8,7 @@ export default function LandingPage() {
 
       <LandingWelcome />
 
-      <LandingContent />
+      {/* <LandingContent /> */}
     </>
   );
 }

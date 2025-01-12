@@ -1,8 +1,10 @@
 import { Link } from "react-router";
-import { buttonVariants } from "../ui/button";
-import { User } from "lucide-react";
+import { useBoolean } from "usehooks-ts";
+import LoginView from "../auth/LoginView";
 
 export default function LandingPageNavbar() {
+  const loginView = useBoolean(false);
+
   return (
     <nav className="px-16 pt-6">
       <div className="px-4 py-4 items-end flex justify-between rounded-md bg-gradient-to-l from-orange-300 to-orange-400">
@@ -31,13 +33,21 @@ export default function LandingPageNavbar() {
           >
             Contact
           </Link>
-          <Link className={buttonVariants()} to={"/auth"}>
-            {/* <Icon icon="arcticons:callapp-contacts" className="" /> */}
+
+          {/* <Link className={buttonVariants()} to={"/auth"}>
             <User />
             Masuk/Daftar
-          </Link>
+          </Link> */}
+
+          {/* <Button onClick={loginView.setTrue}>
+            <User />
+            Masuk/Daftar
+          </Button> */}
+          <LoginView isOpen={loginView.value} setOpen={loginView.toggle} />
         </ul>
       </div>
+
+      {/* <LoginView isOpen={loginView.value} setOpen={loginView.toggle} /> */}
     </nav>
   );
 }
