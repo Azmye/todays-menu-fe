@@ -1,5 +1,4 @@
-import React from "react";
-import { Hero } from "./sections";
+import { Hero, Stores } from "./sections";
 import { FilterMenu, SearchBar } from "@/components";
 
 export default function Index() {
@@ -11,6 +10,8 @@ export default function Index() {
         <FilterMenu className="w-3/12" />
         <div className="w-9/12">
           <SearchBar />
+
+          <Stores />
         </div>
       </div>
     </>
